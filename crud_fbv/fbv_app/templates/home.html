@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %} HOME PAGE {% endblock %}
+{% block content %}
+
+    <!-- container -->
+
+    <div class="container">
+        <center>
+            <strong>ALL STUDENTS DATA</strong>
+        </center>
+      
+        <div class="table-responsive mt-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th class="bg-secondary text-white">ID</th>
+                    <th class="bg-secondary text-white">FIRST NAME</th>
+                    <th class="bg-secondary text-white">LAST NAME</th>
+                    <th class="bg-secondary text-white">AGE</th>
+                    <th class="bg-secondary text-white">EMAIL</th>
+                    <th class="bg-secondary text-white">ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        
+                        <td>
+                            <a href="{% url 'student_detail' stu_id=student.id %}">
+                                {{student.id}}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'student_detail' stu_id=student.id %}" class="text-decoration-none">
+                                {{student.first_name}}
+                            </a>
+                        </td>
+                        <td> {{student.last_name}} </td>
+                        <td> {{student.age}} </td>
+                        <td> {{student.email}} </td>
+                        <td>
+                            <a href="{% url 'update' stu_id=student.id %}" class="btn btn-warning">Edit</a>
+                            <a href="{% url 'delete' stu_id=student.id %}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+       
+        <!-- <p>No Data Fount</p> -->
+       
+    </div>
+
+
+
+
+{% endblock %}

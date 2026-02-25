@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} HOME PAGE {% endblock %}
+{% block content %}
+
+    <div class="container">
+        <center>
+            <h2>STUDENT DETAILS</h2>
+        </center>
+        <div class="card">
+            <div class="card-body">
+                <h3>Student Name: {{student.first_name}} {{student.last_name}} </h3>
+                <p>Email: {{student.email}} </p>
+                <i>Age: {{student.age}} </i>
+            </div>
+            
+        </div>
+        <br>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Back To Home</a>
+    </div>
+
+{% endblock %}
